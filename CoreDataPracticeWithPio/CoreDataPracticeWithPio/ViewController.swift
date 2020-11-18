@@ -10,6 +10,8 @@ import CoreData
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var label: UILabel!
+    
     var appDelegate: AppDelegate {
         UIApplication.shared.delegate as! AppDelegate
     }
@@ -34,5 +36,27 @@ class ViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
+    }
+    
+    @IBAction private func touchedButton(_ sender: Any) {
+        let txt = fetchContact().reduce("", {$0 + "\n" + ($1 ?? "@")})
+        print(txt)
+        label.text = txt
+    }
+    
+    private func fetchContact() -> [String?] {
+        var arr = [String?]()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        do {
+            let contact = try context.fetch(Contact.fetchRequest()) as! [Contact]
+            contact.forEach {
+                print($0.name)
+                arr.append($0.name)
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+        return arr
     }
 }
