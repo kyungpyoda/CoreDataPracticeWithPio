@@ -10,7 +10,7 @@ import CoreData
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var textView: UITextView!
     
     var appDelegate: AppDelegate {
         UIApplication.shared.delegate as! AppDelegate
@@ -24,13 +24,22 @@ class ViewController: UIViewController {
         PersistenceManager.shared.insertPerson(person: pio)
         
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(fetchAll))
+        textView.addGestureRecognizer(tapGesture)
     }
     
-    @IBAction private func touchedButton(_ sender: Any) {
         let contacts = PersistenceManager.shared.fetch(request: Contact.fetchRequest())
         let txt = contacts.reduce("", {$0 + "\n" + ($1.name ?? "//error")})
+    @IBAction private func touchedInsertButton(_ sender: Any) {
+    }
+    @IBAction func touchedDeleteAllButton(_ sender: Any) {
+    }
+    @objc func fetchAll() {
+        let places = PersistenceManager.shared.fetch(request: Place.fetchRequest())
+        let txt = places.reduce("", {$0 + "\n" + ($1.name ?? "//error")})
+        print(places.count)
         print(txt)
-        label.text = txt
+        textView.text = txt
     }
     
 }
