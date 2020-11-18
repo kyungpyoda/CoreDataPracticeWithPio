@@ -20,19 +20,15 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        PersistenceManager.shared.insertPerson(person: pio)
-        
-        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(fetchAll))
         textView.addGestureRecognizer(tapGesture)
     }
     
-        let contacts = PersistenceManager.shared.fetch(request: Contact.fetchRequest())
-        let txt = contacts.reduce("", {$0 + "\n" + ($1.name ?? "//error")})
     @IBAction private func touchedInsertButton(_ sender: Any) {
+        insertAll()
     }
     @IBAction func touchedDeleteAllButton(_ sender: Any) {
+        clear()
     }
     @objc func fetchAll() {
         let places = PersistenceManager.shared.fetch(request: Place.fetchRequest())
@@ -41,5 +37,44 @@ class ViewController: UIViewController {
         print(txt)
         textView.text = txt
     }
-    
+    func insertAll() {
+        guard let count = PersistenceManager.shared.count(request: Place.fetchRequest()),
+              count == 0 else { return }
+        
+        guard let data = NSDataAsset(name: "restaurant_list")?.data else {
+            fatalError("Missing data asset: restaurant_list")
+        }
+        do {
+            let json = try JSONDecoder().decode(RestaurantList.self, from: data)
+            json.places.forEach({
+                PersistenceManager.shared.insertPOI(poi: $0)
+            })
+        } catch {
+            print(error)
+        }
+    }
+    func clear() {
+        PersistenceManager.shared.deleteAll(request: Place.fetchRequest())
+    }
+}
+
+struct POI {
+    var id: String
+    var name: String
+    var lng: String
+    var lat: String
+    var imageUrl: String?
+    var category: String
+}
+
+extension POI: Codable {
+    enum CodingKeys: String, CodingKey {
+        case lng = "x"
+        case lat = "y"
+        case id, name, imageUrl, category
+    }
+}
+
+struct RestaurantList: Codable {
+    var places: [POI]
 }

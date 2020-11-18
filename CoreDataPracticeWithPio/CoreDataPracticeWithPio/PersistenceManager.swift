@@ -35,6 +35,30 @@ class PersistenceManager {
             return []
         }
     }
+    
+    func insertPOI(poi: POI) -> Bool {
+        let entity = NSEntityDescription.entity(forEntityName: "Place", in: self.context)
+        
+        if let entity = entity {
+            let managedObject = NSManagedObject(entity: entity, insertInto: self.context)
+            print(entity.attributesByName.keys)
+            managedObject.setValue(poi.id, forKey: "id")
+            managedObject.setValue(poi.name, forKey: "name")
+            managedObject.setValue(Double(poi.lng), forKey: "lng")
+            managedObject.setValue(Double(poi.lat), forKey: "lat")
+            managedObject.setValue(poi.imageUrl, forKey: "imageUrl")
+            managedObject.setValue(poi.category, forKey: "category")
+            do {
+                try self.context.save()
+                return true
+            } catch {
+                print(error.localizedDescription)
+                return false
+            }
+        } else {
+            return false
+        }
+    }
 
     @discardableResult
     func insertPerson(person: Person) -> Bool {
