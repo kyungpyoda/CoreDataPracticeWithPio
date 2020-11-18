@@ -10,6 +10,7 @@
 		D46B33C62564FE560044E279 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D46B33C42564FE560044E279 /* Model.xcdatamodeld */; };
 		D46B33CA2564FE7F0044E279 /* Contact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46B33C82564FE7F0044E279 /* Contact+CoreDataClass.swift */; };
 		D46B33CB2564FE7F0044E279 /* Contact+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46B33C92564FE7F0044E279 /* Contact+CoreDataProperties.swift */; };
+		D46B33CE256506990044E279 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46B33CD256506990044E279 /* Person.swift */; };
 		D4D2F2D82564F4C7008D6915 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D2F2D72564F4C7008D6915 /* AppDelegate.swift */; };
 		D4D2F2DA2564F4C7008D6915 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D2F2D92564F4C7008D6915 /* SceneDelegate.swift */; };
 		D4D2F2DC2564F4C7008D6915 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D2F2DB2564F4C7008D6915 /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 		D46B33C52564FE560044E279 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D46B33C82564FE7F0044E279 /* Contact+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D46B33C92564FE7F0044E279 /* Contact+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D46B33CD256506990044E279 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		D4D2F2D42564F4C7008D6915 /* CoreDataPracticeWithPio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataPracticeWithPio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4D2F2D72564F4C7008D6915 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4D2F2D92564F4C7008D6915 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				D4D2F2D72564F4C7008D6915 /* AppDelegate.swift */,
 				D4D2F2D92564F4C7008D6915 /* SceneDelegate.swift */,
 				D4D2F2DB2564F4C7008D6915 /* ViewController.swift */,
+				D46B33CD256506990044E279 /* Person.swift */,
 				D4D2F2DD2564F4C7008D6915 /* Main.storyboard */,
 				D4D2F2E32564F4CA008D6915 /* Assets.xcassets */,
 				D4D2F2E52564F4CA008D6915 /* LaunchScreen.storyboard */,
@@ -150,6 +153,7 @@
 				D4D2F2DC2564F4C7008D6915 /* ViewController.swift in Sources */,
 				D4D2F2D82564F4C7008D6915 /* AppDelegate.swift in Sources */,
 				D4D2F2DA2564F4C7008D6915 /* SceneDelegate.swift in Sources */,
+				D46B33CE256506990044E279 /* Person.swift in Sources */,
 				D46B33C62564FE560044E279 /* Model.xcdatamodeld in Sources */,
 				D46B33CA2564FE7F0044E279 /* Contact+CoreDataClass.swift in Sources */,
 			);
