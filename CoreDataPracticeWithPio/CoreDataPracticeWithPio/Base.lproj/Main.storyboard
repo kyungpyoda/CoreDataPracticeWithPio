@@ -17,13 +17,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gen-wg-Zhx">
-                                <rect key="frame" x="0.0" y="438.5" width="414" height="20.5"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="728"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9X-Pv-DZF">
-                                <rect key="frame" x="184" y="539" width="46" height="30"/>
+                                <rect key="frame" x="0.0" y="792" width="414" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ZvC-R2-qHR"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="touchedButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G6f-oU-MSh"/>
@@ -33,12 +36,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="n9X-Pv-DZF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BBn-mU-QZy"/>
-                            <constraint firstItem="n9X-Pv-DZF" firstAttribute="centerX" secondItem="Gen-wg-Zhx" secondAttribute="centerX" id="e20-CU-acJ"/>
+                            <constraint firstItem="Gen-wg-Zhx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="1Qd-Zx-gBV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="n9X-Pv-DZF" secondAttribute="trailing" id="5DK-BF-Uag"/>
                             <constraint firstItem="Gen-wg-Zhx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fBB-7n-NIM"/>
-                            <constraint firstItem="n9X-Pv-DZF" firstAttribute="top" secondItem="Gen-wg-Zhx" secondAttribute="bottom" constant="80" id="fj3-Qb-fhr"/>
+                            <constraint firstItem="n9X-Pv-DZF" firstAttribute="top" secondItem="Gen-wg-Zhx" secondAttribute="bottom" constant="20" id="fj3-Qb-fhr"/>
+                            <constraint firstItem="n9X-Pv-DZF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fl3-KI-gLp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Gen-wg-Zhx" secondAttribute="trailing" id="jiZ-8u-9m5"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="n9X-Pv-DZF" secondAttribute="bottom" constant="293" id="suT-Nz-toD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="n9X-Pv-DZF" secondAttribute="bottom" constant="20" id="suT-Nz-toD"/>
                         </constraints>
                     </view>
                     <connections>

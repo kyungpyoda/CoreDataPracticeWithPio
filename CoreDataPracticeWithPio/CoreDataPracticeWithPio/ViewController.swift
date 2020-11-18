@@ -21,42 +21,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let context = appDelegate.persistentContainer.viewContext
+        PersistenceManager.shared.insertPerson(person: pio)
         
-        let entity = NSEntityDescription.entity(forEntityName: "Contact", in: context)
-        
-        if let entity = entity {
-            let person = NSManagedObject(entity: entity, insertInto: context)
-            person.setValue(pio.name, forKey: "name")
-            person.setValue(pio.phoneNumber, forKey: "phoneNumber")
-            person.setValue(pio.shortcutNumber, forKey: "shortcutNumber")
-        }
-        do {
-            try context.save()
-        } catch {
-            print(error.localizedDescription)
-        }
     }
     
     @IBAction private func touchedButton(_ sender: Any) {
-        let txt = fetchContact().reduce("", {$0 + "\n" + ($1 ?? "@")})
+        let contacts = PersistenceManager.shared.fetch(request: Contact.fetchRequest())
+        let txt = contacts.reduce("", {$0 + "\n" + ($1.name ?? "//error")})
         print(txt)
         label.text = txt
     }
     
-    private func fetchContact() -> [String?] {
-        var arr = [String?]()
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        do {
-            let contact = try context.fetch(Contact.fetchRequest()) as! [Contact]
-            contact.forEach {
-                print($0.name)
-                arr.append($0.name)
-            }
-        } catch {
-            print(error.localizedDescription)
-        }
-        return arr
-    }
 }
