@@ -12,7 +12,7 @@ class PersistenceManager {
     
     static var shared: PersistenceManager = PersistenceManager()
     
-    lazy var persistentContainer: NSPersistentContainer = {
+    var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Model")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
@@ -44,8 +44,8 @@ class PersistenceManager {
             print(entity.attributesByName.keys)
             managedObject.setValue(poi.id, forKey: "id")
             managedObject.setValue(poi.name, forKey: "name")
-            managedObject.setValue(Double(poi.lng), forKey: "lng")
-            managedObject.setValue(Double(poi.lat), forKey: "lat")
+            managedObject.setValue(poi.lng, forKey: "lng")
+            managedObject.setValue(poi.lat, forKey: "lat")
             managedObject.setValue(poi.imageUrl, forKey: "imageUrl")
             managedObject.setValue(poi.category, forKey: "category")
             do {
@@ -101,6 +101,7 @@ class PersistenceManager {
             try self.context.execute(delete)
             return true
         } catch {
+            print(error)
             return false
         }
     }
